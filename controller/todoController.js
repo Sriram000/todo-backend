@@ -28,3 +28,19 @@ exports.deleteTodo = async (req, res, next) => {
         res.json({
             message: result ? "success" : "ID does not exists" });
 }
+
+exports.updateTodo = async (req, res, next) => {
+    const result = await todo.update({
+        text: req.body.text
+    },
+    {
+        where: {
+            id: {
+                [Op.eq]: req.params.todo_id,
+            }
+        }
+    });
+    res.json({
+        message: result ? "Success" : "Error"
+    });
+}
