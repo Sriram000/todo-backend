@@ -9,3 +9,8 @@ exports.createTodo = async (req, res) => {
         res.json({
              message: result ? "success" : "error" });
 }
+
+exports.allTodo = async (req, res) => {
+    const todos = await todo.findAll({})
+    res.json({ todos });
+}
