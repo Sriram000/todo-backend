@@ -12,8 +12,7 @@ const genController = (type) => {
                 text,
                 isCompleted,
             });
-                res.json({
-                     message: result ? "success" : "error" });
+            res.json(result);
         },
         
         get: async (req, res) => {
@@ -41,8 +40,7 @@ const genController = (type) => {
                         }
                     }
                 });
-                res.json({
-                    message: result ? "success" : "ID does not exists" });
+                res.json(result);
         },
         
         edit: async (req, res) => {
@@ -56,9 +54,7 @@ const genController = (type) => {
                     }
                 }
             });
-            res.json({
-                message: result ? "Success" : "Error"
-            });
+            res.json(result);
         },
     }
     
