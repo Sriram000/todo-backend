@@ -7,11 +7,7 @@ const genController = (type) => {
 
     return {
         create: async (req, res) => {
-            const { text, isCompleted } = req.body;
-            const result = await model.create({
-                text,
-                isCompleted,
-            });
+            const result = await model.create(req.body);
             res.json(result);
         },
         
@@ -44,9 +40,8 @@ const genController = (type) => {
         },
         
         edit: async (req, res) => {
-            const result = await model.update({
-                text: req.body.text
-            },
+            const result = await model.update(
+            req.body,
             {
                 where: {
                     id: {
